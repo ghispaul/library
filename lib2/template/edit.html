@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html>-->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-center text-dark mt-3">EDIT</h1>
+<form method="POST" enctype="multipart/form-data">
+
+
+{% csrf_token %}
+    <div class="mb-3 text-dark">
+          <div class="row g-3">
+      <div class="col-sm-10">
+      <label class="form-label ">Title</label>
+      <input type="text" class="form-control " name="t" value="{{book.title}}" placeholder="Input the Title">
+    </div>
+    <div class="mb-3">
+        <div class="row g-3">
+      <div class="col-sm-10">
+      <label  class="form-label">Author</label>
+      <input type="text" class="form-control" name="a" value="{{book.author}}" placeholder="Input Author">
+    </div>
+    <div class="mb-3">
+        <div class="row g-3">
+      <div class="col-sm-10">
+      <label class="form-label">Price</label>
+      <input type="number" class="form-control" name="p" value="{{book.price}}" placeholder="Input Price">
+    </div>
+    <div class="mb-3">
+        <div class="row g-3">
+      <div class="col-sm-10">
+      <label  class="form-label">Pages</label>
+      <input type="number" class="form-control" name="pa" value="{{book.pages}}" placeholder="Input Pages">
+    </div>
+    <div class="mb-3">
+        <div class="row g-3">
+      <div class="col-sm-10">
+      <label  class="form-label">Language/label>
+      <input type="text" class="form-control" name="l" value="{{book.language}}" placeholder="Input Pages">
+    </div>
+            <div class="mb-3">
+        <div class="row g-3">
+      <div class="col-sm-10">
+          <img src="{{book.cover.url}}" height="100px" width="100px">
+      <label  class="form-label">image</label>
+      <input type="file" class="form-control" name="i">
+    </div>
+
+    <div class="mb-3">
+        <div class="row g-3">
+      <div class="col-sm-10">
+      <label  class="form-label">file</label>
+          <a href="{{book.pdf.url}}">PDF</a>
+      <input type="file" class="form-control" name="f">
+    </div>
+    <div class="mb-3 ms-3">
+            <input type="submit" value="ADD">
+    </div>
+</form>
+
+
+{% endblock %}
